@@ -97,15 +97,16 @@ unset($__errorArgs, $__bag); ?>
                                                   class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集</a>
                                           </div>
                                           <div>
-                                              <form action="/tasks/<?php echo e($item->id); ?>" method="post"
-                                                  class="inline-block text-gray-500 font-medium"
-                                                  role="menuitem" tabindex="-1">
-                                                  <?php echo csrf_field(); ?>
-                                                  <?php echo method_field('DELETE'); ?>
-                                                  <button type="submit"
-                                                      class="py-4 w-20 md:hover:bg-slate-200 transition-colors">削除</button>
-                                              </form>
-                                          </div>
+                                            <form onsubmit="return deleteTask();"
+                                                action="/tasks/<?php echo e($item->id); ?>" method="post"
+                                                class="inline-block text-gray-500 font-medium"
+                                                role="menuitem" tabindex="-1">
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('DELETE'); ?>
+                                                <button type="submit"
+                                                    class="py-4 w-20 md:hover:bg-slate-200 transition-colors">削除</button>
+                                            </form>
+                                            </div>
                                       </div>
                                   </td>
                               </tr>
@@ -126,6 +127,15 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </div>
     </footer>
+    <script>
+    function deleteTask() {
+        if (confirm('本当に削除しますか？')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+  </script>
 </body>
  
 </html><?php /**PATH C:\Users\CRE\Desktop\TODO-app2\resources\views/tasks/index.blade.php ENDPATH**/ ?>

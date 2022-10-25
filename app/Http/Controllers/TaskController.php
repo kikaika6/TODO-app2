@@ -15,9 +15,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-  
-    return view('tasks.index', compact('tasks'));
+        $tasks = Task::where('status', false)->get();
+ 
+        return view('tasks.index', compact('tasks'));
     }
 
     /**
@@ -135,6 +135,8 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Task::find($id)->delete();
+  
+        return redirect('/tasks');
     }
 }
