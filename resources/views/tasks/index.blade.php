@@ -109,7 +109,7 @@
       </div>
   @endif
                                             <div>
-                                              <a href="/tasks/history/"
+                                              <a href="/history"
                                                   class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">完了履歴</a>
                                           </div>
 
