@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class historyController extends Controller
@@ -14,7 +15,9 @@ class historyController extends Controller
      */
     public function index()
     {
-        return view('tasks.history');//
+        $tasks = Task::where('status', true)->get();
+ 
+        return view('tasks.history', compact('tasks'));
     }
 
     /**
@@ -69,7 +72,13 @@ class historyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Task::find($id);
+    
+        //モデル->カラム名 = 値 で、データを割り当てる
+        $task->status = true; //true:完了、false:未完了
+    
+        //データベースに保存
+        $task->save(); //
     }
 
     /**
