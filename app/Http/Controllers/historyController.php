@@ -72,13 +72,16 @@ class historyController extends Controller
      */
     public function update(Request $request, $id)
     {
+      
         $task = Task::find($id);
     
         //モデル->カラム名 = 値 で、データを割り当てる
-        $task->status = true; //true:完了、false:未完了
+        $task->status = false; //true:完了、false:未完了
     
         //データベースに保存
         $task->save(); //
+
+        return redirect('/history');
     }
 
     /**

@@ -26,15 +26,16 @@
                                       <div class="flex justify-end">
 
                                           <div>
-                                            <form onsubmit="return deleteTask();"
-                                                action="/tasks/<?php echo e($item->id); ?>" method="post"
-                                                class="inline-block text-gray-500 font-medium"
-                                                role="menuitem" tabindex="-1">
-                                                <?php echo csrf_field(); ?>
-                                                <?php echo method_field('DELETE'); ?>
-                                                <button type="submit"
-                                                    class="py-4 w-20 md:hover:bg-slate-200 transition-colors">戻す</button>
-                                            </form>
+                                          <form action="/history/<?php echo e($item->id); ?>"
+                                                  method="post"
+                                                  class="inline-block text-gray-500 font-medium"
+                                                  role="menuitem" tabindex="-1">
+                                                  <?php echo csrf_field(); ?>
+                                                  <?php echo method_field('PUT'); ?>
+                                                  <input type="hidden" name="status" value="<?php echo e($item->status); ?>">
+                                                  <button type="submit"
+                                                      class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerald-800 transition-colors">戻す</button>
+                                              </form>
                                             </div>
                                       </div>
                                   </td>
